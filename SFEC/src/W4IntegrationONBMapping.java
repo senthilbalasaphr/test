@@ -2,6 +2,19 @@
 public class W4IntegrationONBMapping {
 	
 	String externalCode;
+	public W4IntegrationONBMapping(String externalCode2, String externalName2, String state2, String oNBField2,
+			String eCField2, String valueMapCode2) {
+		// TODO Auto-generated constructor stub
+		this.externalCode = externalCode2;
+		this.externalName = externalName2;
+		this.State = state2;
+		this.ONBField = oNBField2;
+		this.ECField = eCField2;
+		this.valueMapCode = valueMapCode2;
+		
+			
+		
+	}
 	public String getExternalName() {
 		return externalName;
 	}

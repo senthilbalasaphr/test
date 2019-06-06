@@ -425,7 +425,7 @@ public class OlingoV2Main {
 	        EntityProviderReadProperties.init().build());
 	  }
 
-  public ODataEntry writeEntitySf(Edm edm, String absolutUri, String entitySetName, 
+  public String writeEntitySf(Edm edm, String absolutUri, String entitySetName, 
 	      Map<String, Object> data, String contentType, String httpMethod,String UserId,String Password ) 
 	      throws EdmException, MalformedURLException, IOException, EntityProviderException, URISyntaxException {
 
@@ -449,6 +449,7 @@ public class OlingoV2Main {
 	  r.omitETag(true);
 	  r.serviceRoot(rootUri);
 	  r.isDataBasedPropertySerialization(true);
+	
 	  
   
 	  
@@ -456,9 +457,6 @@ public class OlingoV2Main {
 	  
 
 	  
-	    EntityInfoAggregator entityInfo = EntityInfoAggregator.create(entitySet, properties.getExpandSelectTree());
-	    EdmEntityType type = entityInfo.getEntityType();
-
 	  
 	  
 	    
@@ -492,11 +490,20 @@ public class OlingoV2Main {
 	    //
 	    connection.disconnect();
 
-	    return entry;
+	    String Status=null;
+	    
+	    if (statusCode.getStatusCode() == 200) {
+	    	Status= "Successful";
+	    }else {
+	    	Status= "Failed";
+	    }
+	    
+	    
+	    return Status;
 	  }
   
   
-  public ODataEntry createEntrySf(Edm edm, String serviceUri, String contentType, 
+  public String createEntrySf(Edm edm, String serviceUri, String contentType, 
 	      String entitySetName, Map<String, Object> data,String UserId,String Password) throws Exception {
 	    String absolutUri = createUri(serviceUri, entitySetName, null);
 	    System.out.print(absolutUri);

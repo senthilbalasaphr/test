@@ -25,7 +25,7 @@ import org.apache.olingo.odata2.api.ep.feed.ODataFeed;
 import org.apache.olingo.odata2.api.exception.ODataException;
 import org.apache.olingo.odata2.api.processor.ODataResponse;
 
-public class Write {
+public class Write { 
 
 	public static final String APPLICATION_JSON = "application/json";
 	
@@ -34,7 +34,7 @@ public class Write {
 		
 		String serviceUrl = "https://api8preview.sapsf.com/odata/v2/cust_W4IntegrationONBMapping";
 		String usedFormat = APPLICATION_JSON;
-
+		String Status=null;
 		OlingoV2Main app = new OlingoV2Main();
 		Edm edm=null;
 		try {
@@ -51,23 +51,23 @@ public class Write {
 
 		
 			Map<String, Object> data = new HashMap<String, Object>();
-			data.put("__metadata", "{uri:cust_W4IntegrationONBMapping}");
-		    data.put("externalCode", "DC_filingStatus");
-		    data.put("externalName", "DC_filingStatus");
+//			data.put("__metadata", "{uri:cust_W4IntegrationONBMapping}");
+		    data.put("externalCode", "DC_taxexemptindicator");
+		    data.put("externalName", "DC_taxexemptindicator");
 		    data.put("cust_State", "DC");
-		    data.put("cust_ONBField", "StateWithholding.DC.DC_D_4_TaxFilingStatus");
-		    data.put("cust_ECField", "cust_filingStatus");
-		    data.put("cust_valueMapCode", "DC_filingStatus");
+		    data.put("cust_ONBField", "StateWithholding.DC.DC_D_4_IsExempt");
+		    data.put("cust_ECField", "cust_taxexemptindicator");
+		    data.put("cust_valueMapCode", "CA_taxexemptindicator");
 		 		    
 		    ODataEntry createdEntry=null;
 		    try {
-				 createdEntry = app.createEntrySf(edm, serviceUrl, usedFormat, "cust_W4IntegrationONBMapping", data,"SFEC_EE_OASS@freemantest", "SFEC_EE_OASS01");
+		    	Status = app.createEntrySf(edm, serviceUrl, usedFormat, "cust_W4IntegrationONBMapping", data,"SFEC_EE_OASS@freemantest", "SFEC_EE_OASS01");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 		
-
+		    System.out.println(Status);
 
 
 	}
