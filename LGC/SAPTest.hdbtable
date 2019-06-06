@@ -1,0 +1,47 @@
+// To define an HDB table with main sql type columns, you can use the following code.
+// In the example below a schema should exist.
+
+
+table.schemaName = "<MY_SAMPLE_SCHEMA>";
+table.tableType = COLUMNSTORE; // ROWSTORE is an alternative value
+
+
+table.columns =
+ [
+    {name = "MY_COL1";  sqlType = VARCHAR;  length = 200; defaultValue = "Sample value";comment = "String Type"; },
+    {name = "MY_COL2";  sqlType = INTEGER;  defaultValue = "1";},
+    {name = "MY_COL3";  sqlType = NVARCHAR; length = 200; defaultValue = "Sample value";comment = "String Type";},
+    {name = "MY_COL4";  sqlType = DECIMAL;  precision = 4; scale = 3;defaultValue = "1.4";},
+    {name = "MY_COL5";  sqlType = DATE; nullable = false; defaultValue = "20140216";},
+    {name = "MY_COL6";  sqlType = TIME; nullable = false; defaultValue = "101010";},	
+    {name = "MY_COL7";  sqlType = TIMESTAMP; nullable = false; defaultValue = "2011-12-31 23:59:59"; }
+ // ,    
+ // {name = "MY_COL8";  sqlType = TINYINT; nullable = false; },
+ // {name = "MY_COL9";  sqlType = CLOB; nullable = true; },	
+ // {name = "MY_COL10"; sqlType = BLOB; nullable = true; }	,
+ // {name = "MY_COL11"; sqlType = TEXT; nullable = true; },
+ // {name = "MY_COL12"; sqlType = CHAR; nullable = true; },
+ // {name = "MY_COL13"; sqlType = NCHAR; nullable = true; },
+ // {name = "MY_COL14"; sqlType = NCLOB; nullable = true; },
+ // {name = "MY_COL15"; sqlType = SMALLINT; nullable = false; },
+ // {name = "MY_COL16"; sqlType = BIGINT; nullable = false; },
+ // {name = "MY_COL17"; sqlType = SMALLDECIMAL;  },
+ // {name = "MY_COL18"; sqlType = DOUBLE; nullable = false; },
+ // {name = "MY_COL19"; sqlType = REAL; nullable = false; },
+ // {name = "MY_COL20"; sqlType = SECONDDATE; nullable = false;},
+ // {name = "MY_COL21"; sqlType = ALPHANUM; nullable = false;},
+ // {name = "MY_COL22"; sqlType = VARBINARY; nullable = false;} ,
+ // {name = "MY_COL23"; sqlType = FLOAT;  },
+ // {name = "MY_COL24"; sqlType = SHORTTEXT;length = 20;  } 
+
+];
+
+
+//table.indexes = 
+// [
+//	{name = "MYINDEX3"; unique = true; order = DSC; indexColumns = ["MY_COL2"];},
+//	{name = "MYINDEX4"; unique = true; order = ASC; indexColumns = ["MY_COL1", "MY_COL4"];}
+//];	
+	
+
+table.primaryKey.pkcolumns = ["MY_COL1", "MY_COL2"];
