@@ -3,10 +3,12 @@
 	<persistence-unit name="LGC" transaction-type="RESOURCE_LOCAL">
 		
 	
-<class> com.sen.jpa.Pick3JPA</class>
+<class>com.sen.jpa.Pick3JPA</class>
 <class>com.LGC.jpa.JpaTest</class>
 <class>com.LGC.jpa.Msg</class> 
 <class>com.LGC.jpa.pick3Obj</class> 
+
+
 
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />

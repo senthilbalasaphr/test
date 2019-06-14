@@ -2,7 +2,9 @@ package com.LGC.jpa;
 
 
 	import javax.persistence.Id;
-	import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -12,6 +14,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 	@Entity
 	@Table (name = "pick3Results") 
+	@NamedQueries(value = {
+		@NamedQuery(name = "getAllPick3",query = "Select p from pick3Obj  p")
+	}) 
 	public class pick3Obj implements java.io.Serializable{
 		@Id
 		String dn;
